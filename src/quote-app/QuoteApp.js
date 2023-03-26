@@ -1,6 +1,8 @@
+import Navbar from "../Navbar";
+
 function QuoteApp() {
     return (
-        <h1>Quote App</h1>
+        <Navbar header='Quote Machine' />
     )
 }
 

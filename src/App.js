@@ -1,12 +1,12 @@
+import Navbar from './Navbar';
 import './styles/App.scss';
 
 function App() {
   return (
     <>
-      <h1>React App</h1>
+      <Navbar header='React Apps' />
       <a href={'/quote-machine'}>Quote Machine</a>
     </>
-
   );
 }
 
