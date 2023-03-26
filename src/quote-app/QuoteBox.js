@@ -1,13 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function QuoteBox() {
-    const [quote, setQuote] = useState('Quote goes here');
-    const [author, setAuthor] = useState('Author goes here');
+    const [quote, setQuote] = useState('');
+    const [author, setAuthor] = useState('');
 
     const newQuote = () => {
-        setQuote('New quote goes here');
-        setAuthor('New author goes here');
+        fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+            setQuote(data.content);
+            setAuthor(data.author);
+        })
+        .catch(error => console.error(error));
     }
+
+    useEffect(() => {
+        newQuote();
+    }, []);
 
     return (
         <section id='quote-box'>
@@ -17,7 +26,8 @@ function QuoteBox() {
             <a href={'https://twitter.com/intent/tweet?text=' + quote + ' -' + author}
                 id='tweet-quote'
                 className='btn btn-primary'
-                target='_blank'>
+                target='_blank'
+                without rel="noreferrer">
                 Tweet
             </a>
         </section>
