@@ -1,2 +1,13 @@
-@import '/node_modules/bootstrap/scss/bootstrap.scss'
+@import '/node_modules/bootstrap/scss/bootstrap.scss';
 
+nav {
+    &>h1 {
+        flex: 1;
+    }
+    &>:not(h1) {
+        flex: 0.5;
+    }
+    img {
+        width: 2rem;
+    }
+}

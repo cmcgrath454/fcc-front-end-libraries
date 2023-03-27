@@ -1,10 +1,22 @@
+const classes = {
+  nav: "d-flex text-center align-items-center py-5",
+}
+
 function Navbar(props) {
-    return (
-        <nav>
-            {props.header !== 'React Apps' && <a href={'/'}>Back</a>}
-            <h1>{props.header}</h1>
-        </nav>
-    )
+  return (
+    <nav className={classes.nav}>
+      <div>
+        {props.header !== "React Apps"
+          && (
+            <a href={"/"}>
+              <img src={process.env.PUBLIC_URL + '/images/back.png'} alt="back button" />
+            </a>
+          )}
+      </div>
+      <h1>{props.header}</h1>
+      <div></div>
+    </nav>
+  );
 }
 
 export default Navbar;
