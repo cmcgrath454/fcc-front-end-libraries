@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import QuoteApp from './quote-app/QuoteApp';
+import MarkdownApp from './markdown-app/MarkdownApp';
 import { createHashRouter, RouterProvider, useRouteError } from 'react-router-dom';
 
 const router = createHashRouter([
@@ -15,6 +16,11 @@ const router = createHashRouter([
   {
     path: '/quote-machine',
     element: <QuoteApp />,
+    errorElement: <ErrorBoundary />
+  },
+  {
+    path: '/markdown-editor',
+    element: <MarkdownApp />,
     errorElement: <ErrorBoundary />
   }
 ]);
