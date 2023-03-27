@@ -1,6 +1,10 @@
 function MarkdownEditor(props) {
     return (
-        <textarea onChange={event => props.handleChange(event)}>{props.text}</textarea>
+        <textarea
+            id = "editor"
+            onChange={event => props.setText(event.target.value)}>
+            {props.text}
+        </textarea>
     )
 }
 

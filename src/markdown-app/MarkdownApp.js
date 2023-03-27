@@ -2,22 +2,26 @@ import Navbar from "../Navbar";
 import MarkdownEditor from "./MarkdownEditor";
 import MarkdownPreview from "./MarkdownPreview";
 import { parse } from 'marked';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+const exampleText = `# This is a heading element
+## This is a subheading element
+- List Item 1
+- List Item 2`
 
 function MarkdownApp() {
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState(exampleText);
     const [markdown, setMarkdown] = useState('');
 
-    function handleChange(e) {
-        e.preventDefault();
+
+    useEffect(() => {
         setMarkdown(parse(input));
-        setInput(e.target.value);
-    }
+    }, [input]);
 
     return (
         <>
             <Navbar header='Markdown Editor' />
-            <MarkdownEditor text={input} handleChange={handleChange} />
+            <MarkdownEditor text={input} setText={setInput} />
             <MarkdownPreview markdown={markdown} />
         </>
     )
