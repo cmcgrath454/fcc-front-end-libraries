@@ -1,6 +1,6 @@
+import '../styles/QuoteApp.scss';
 import Navbar from "../Navbar";
 import QuoteBox from "./QuoteBox";
-import '../styles/QuoteApp.scss';
 
 function QuoteApp() {
     return (

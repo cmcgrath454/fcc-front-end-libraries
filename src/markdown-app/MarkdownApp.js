@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import Navbar from "../Navbar";
 import MarkdownEditor from "./MarkdownEditor";
 import MarkdownPreview from "./MarkdownPreview";
 import { parse } from 'marked';
+import { useState } from 'react';
 
 function MarkdownApp() {
     const [input, setInput] = useState('');
@@ -11,7 +11,6 @@ function MarkdownApp() {
     function handleChange(e) {
         e.preventDefault();
         setMarkdown(parse(input));
-
         setInput(e.target.value);
     }
 
@@ -21,9 +20,7 @@ function MarkdownApp() {
             <MarkdownEditor text={input} handleChange={handleChange} />
             <MarkdownPreview markdown={markdown} />
         </>
-
     )
-
 }
 
 export default MarkdownApp;
