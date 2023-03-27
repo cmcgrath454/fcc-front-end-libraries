@@ -6,7 +6,9 @@ import { useEffect, useState } from 'react';
 
 const exampleText = `# This is a heading element
 ## This is a subheading element
-Here's some inline code, \`<div></div>\`
+
+Here's some inline code: \`<div></div>\`
+
 \`\`\`
 // Here's a code block
 function anotherExample(firstLine, lastLine) {
@@ -15,16 +17,17 @@ function anotherExample(firstLine, lastLine) {
   }
 }
 \`\`\`
-You can make lists
-- List Item 1
-- List Item 2
 
-**Bold text**
+You can also make lists
+- List Item
+- **And bold text**
 
-You can add [links](https://google.com)
+You can add [links](https://colinmcgrath.tech) (Check out my website)
 
 > or Block Quotes!
-![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)
+
+or images
+![Markdown Logo](https://img.icons8.com/small/512/markdown.png)
 `
 
 function MarkdownApp() {
@@ -38,9 +41,10 @@ function MarkdownApp() {
     return (
         <>
             <Navbar header='Markdown Editor' />
-            <MarkdownEditor text={input} setText={setInput} />
-            <MarkdownPreview markdown={markdown} />
-            <script src="test.js"></script>
+            <div className="d-md-flex gap-md-5 mx-md-5 align-items-start">
+              <MarkdownEditor text={input} setText={setInput} />
+              <MarkdownPreview markdown={markdown} />
+            </div>
         </>
     )
 }

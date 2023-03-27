@@ -1,4 +1,3 @@
-import '../styles/QuoteApp.scss';
 import Navbar from "../Navbar";
 import QuoteBox from "./QuoteBox";
 

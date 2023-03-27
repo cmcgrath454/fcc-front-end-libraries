@@ -1,5 +1,7 @@
 @import '/node_modules/bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
 @import 'QuoteApp.scss';
+@import 'MarkdownApp.scss';
 
 nav {
     &>h1 {

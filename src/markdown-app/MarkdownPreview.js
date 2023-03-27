@@ -1,9 +1,13 @@
 function MarkdownPreview(props) {
     return (
-        <section
-            id="preview"
-            dangerouslySetInnerHTML={{ __html: props.markdown }}>
-        </section>
+        <div className="window-wrapper">
+            <h2>Preview</h2>
+            <section
+                id='preview'
+                className='markdown-body'
+                dangerouslySetInnerHTML={{ __html: props.markdown }}>
+            </section>
+        </div>
     )
 }
 

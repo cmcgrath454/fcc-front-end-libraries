@@ -1,14 +1,18 @@
 function MarkdownEditor(props) {
     return (
-        <textarea
-            id="editor"
-            onChange={event => {
-                event.preventDefault();
-                props.setText(event.target.value);
-            }}
-            value={props.text}
-            >
-        </textarea>
+        <div className="window-wrapper">
+            <h2>Editor</h2>
+            <textarea
+                id="editor"
+                spellCheck="false"
+                onChange={event => {
+                    event.preventDefault();
+                    props.setText(event.target.value);
+                }}
+                value={props.text}
+                >
+            </textarea>
+        </div>
     )
 }
 
