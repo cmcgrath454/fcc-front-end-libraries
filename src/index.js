@@ -7,6 +7,7 @@ import { createHashRouter, RouterProvider, useRouteError } from 'react-router-do
 
 const router = createHashRouter([
   {
+    id: 'root',
     path: '/',
     element: <App />,
     errorElement: <ErrorBoundary />

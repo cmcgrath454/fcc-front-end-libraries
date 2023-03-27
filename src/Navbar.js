@@ -8,7 +8,7 @@ function Navbar(props) {
       <div>
         {props.header !== "React Apps"
           && (
-            <a href={"/"}>
+            <a href={process.env.PUBLIC_URL}>
               <img src={process.env.PUBLIC_URL + '/images/back.png'} alt="back button" />
             </a>
           )}

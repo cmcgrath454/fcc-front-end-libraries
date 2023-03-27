@@ -27,7 +27,7 @@ function QuoteBox() {
     return (
         <section id='quote-box' style={{ backgroundColor: bgColor }}>
             <blockquote id='text'>
-                <img src={process.env.PUBLIC_URL + 'images/quote.png'} alt="quote" />
+                <img src={process.env.PUBLIC_URL + '/images/quote.png'} alt="quote" />
                 {quote}
             </blockquote>
             <cite id='author'>{author}</cite>
