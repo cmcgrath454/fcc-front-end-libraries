@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <Navbar header='React Apps' />
-      <a href={'/quote-machine'}>Quote Machine</a>
+      <a href={'/#/quote-machine'}>Quote Machine</a>
     </>
   );
 }

@@ -3,20 +3,27 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import QuoteApp from './quote-app/QuoteApp';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider, useRouteError } from 'react-router-dom';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
-    element: <App />
+    element: <App />,
+    errorElement: <ErrorBoundary />
   },
   {
     path: '/quote-machine',
-    element: <QuoteApp />
+    element: <QuoteApp />,
+    errorElement: <ErrorBoundary />
   }
 ]);
 
-
+function ErrorBoundary() {
+  let error = useRouteError();
+  console.error(error);
+  // Uncaught ReferenceError: path is not defined
+  return <div>Error in console!</div>;
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
