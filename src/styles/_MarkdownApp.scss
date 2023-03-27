@@ -27,7 +27,7 @@ $git-md-font-stack: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helv
     font-family: Bitter;
     font-weight: 700;    
 
-    h2 {
+    &>h2 {
         text-align: center;
     }
 }
