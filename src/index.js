@@ -5,6 +5,7 @@ import { createHashRouter, RouterProvider, useRouteError } from 'react-router-do
 import App from './App';
 import QuoteApp from './quote-app/QuoteApp';
 import MarkdownApp from './markdown-app/MarkdownApp';
+import DrumApp from './drum-app/DrumApp';
 
 
 const router = createHashRouter([
@@ -23,7 +24,12 @@ const router = createHashRouter([
     path: '/markdown-editor',
     element: <MarkdownApp />,
     errorElement: <ErrorBoundary />
-  }
+  },
+  {
+    path: '/drum-app',
+    element: <DrumApp />,
+    errorElement: <ErrorBoundary />
+  },
 ]);
 
 function ErrorBoundary() {
