@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Parser } from 'expr-eval';
+import { calculatorListener, removeCalculatorListener } from './CalculatorKeyListener';
 import Navbar from "../Navbar";
 import NumberButton from "./NumberButton"
 import OperatorButton from "./OperatorButton"
@@ -23,11 +24,17 @@ const operators = [
     { symbol: '*', text: 'multiply' },
     { symbol: '/', text: 'divide' }
 ]
+
 function Calculator() {
     const [mainDisplay, setMainDisplay] = useState('0');
     const [subDisplay, setSubDisplay] = useState('0');
     const [evaluated, setEvaluated] = useState(false);
     const [negativeInput, setNegativeInput] = useState(false);
+
+    useEffect(() => {
+        calculatorListener();
+        return () => removeCalculatorListener();
+    }, []);
 
     function handleClick(event) {
         let value = event.target.value;
@@ -44,7 +51,6 @@ function Calculator() {
                 setSubDisplay(prev => prev.substring(0, prev.length - 1) + value);
                 return;
             }
-
         }
 
         if (evaluated) {
