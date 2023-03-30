@@ -7,6 +7,9 @@ function handleKeyPress(event) {
         case '=':
             document.getElementById('equals').click();
             break;
+        case 'Escape':
+            document.getElementById('clear').click();
+            break;
         case '+':
             document.getElementById('add').click();
             break;
@@ -21,9 +24,6 @@ function handleKeyPress(event) {
             break;
         case '.':
             document.getElementById('decimal').click();
-            break;
-        case 'escape':
-            document.getElementById('clear').click();
             break;
         case '1':
             document.getElementById('one').click();
