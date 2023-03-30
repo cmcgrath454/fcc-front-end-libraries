@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Parser } from 'expr-eval';
 import Navbar from "../Navbar";
 import NumberButton from "./NumberButton"
 import OperatorButton from "./OperatorButton"
@@ -58,14 +59,19 @@ function Calculator() {
                 setSubDisplay(prev => prev += '0.');
             }
         }
-
     }
 
     function handleEquals() {
-        const result = eval(subDisplay);
-        setMainDisplay(result);
-        setSubDisplay(prev => prev + '=' + result);
-        setEvaluated(true);
+        try {
+            const result = Parser.evaluate(subDisplay);
+            setMainDisplay(result);
+            setSubDisplay(prev => prev + '=' + result);
+            setEvaluated(true);
+        } catch {
+            setMainDisplay('0');
+            setSubDisplay('ERROR');
+            setEvaluated(true);
+        }  
     };
 
     function handleClear() {
