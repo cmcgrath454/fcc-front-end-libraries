@@ -18,8 +18,8 @@ const numbers = [
 ];
 
 const operators = [
-    { symbol: '+', text: 'plus' },
-    { symbol: '-', text: 'minus' },
+    { symbol: '+', text: 'add' },
+    { symbol: '-', text: 'subtract' },
     { symbol: '*', text: 'multiply' },
     { symbol: '/', text: 'divide' }
 ]
@@ -27,19 +27,32 @@ function Calculator() {
     const [mainDisplay, setMainDisplay] = useState('0');
     const [subDisplay, setSubDisplay] = useState('0');
     const [evaluated, setEvaluated] = useState(false);
+    const [negativeInput, setNegativeInput] = useState(false);
 
     function handleClick(event) {
         let value = event.target.value;
 
-        if (value === '0' && subDisplay === '0' && mainDisplay === '0') return;
-        if (isNaN(mainDisplay) && isNaN(value)) return;
+        if (value === '0' && subDisplay === '0' && mainDisplay === '0')
+            return;
+
+        /* Check if user is changing operator */
+        if (isNaN(mainDisplay) && isNaN(value) && !negativeInput) {
+            if (value === '-') {
+                setNegativeInput(true);
+            } else {
+                setMainDisplay(value);
+                setSubDisplay(prev => prev.substring(0, prev.length - 1) + value);
+                return;
+            }
+
+        }
 
         if (evaluated) {
             setSubDisplay(!isNaN(value) ? value : mainDisplay + value);
             setMainDisplay(value);
             setEvaluated(false);
         } else {
-            setSubDisplay(prev => prev + value);
+            setSubDisplay(prev => prev !== '0' ? prev + value : value);
             setMainDisplay(prev => (!isNaN(value) && !isNaN(prev) && prev !== '0') ? prev + value : value);
         }
     };
@@ -50,7 +63,8 @@ function Calculator() {
             setSubDisplay('0.');
             setEvaluated(false);
         } else {
-            if (mainDisplay.includes('.')) return;
+            if (mainDisplay.includes('.'))
+                return;
             if (!isNaN(mainDisplay)) {
                 setMainDisplay(prev => prev + '.');
                 setSubDisplay(prev => prev === '' ? '0.' : prev + '.');
@@ -71,7 +85,7 @@ function Calculator() {
             setMainDisplay('0');
             setSubDisplay('ERROR');
             setEvaluated(true);
-        }  
+        }
     };
 
     function handleClear() {
