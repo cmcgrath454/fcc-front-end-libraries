@@ -6,6 +6,7 @@ import App from './App';
 import QuoteApp from './quote-app/QuoteApp';
 import MarkdownApp from './markdown-app/MarkdownApp';
 import DrumApp from './drum-app/DrumApp';
+import Calculator from './calculator-app/Calculator';
 
 
 const router = createHashRouter([
@@ -26,8 +27,13 @@ const router = createHashRouter([
     errorElement: <ErrorBoundary />
   },
   {
-    path: '/drum-app',
+    path: '/drums',
     element: <DrumApp />,
+    errorElement: <ErrorBoundary />
+  },
+  {
+    path: '/calculator',
+    element: <Calculator />,
     errorElement: <ErrorBoundary />
   },
 ]);
