@@ -55,6 +55,8 @@ function handleKeyPress(event) {
         case '0':
             document.getElementById('zero').click();
             break;
+        default:
+            break;
     }
 }
 

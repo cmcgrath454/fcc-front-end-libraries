@@ -25,60 +25,128 @@ const operators = [
     { symbol: '/', text: 'divide' }
 ]
 
+const inputStates = {
+    INTEGER: 'INTEGER',
+    DECIMAL: 'DECIMAL',
+    SIGN: 'SIGN',
+    OPERATOR: 'OPERATOR',
+    EVALUATED: 'EVALUATED',
+    ERROR: 'ERROR'
+}
+
 function Calculator() {
     const [mainDisplay, setMainDisplay] = useState('0');
     const [subDisplay, setSubDisplay] = useState('0');
-    const [evaluated, setEvaluated] = useState(false);
-    const [negativeInput, setNegativeInput] = useState(false);
+    const [inputState, setInputState] = useState(inputStates.INTEGER);
 
     useEffect(() => {
         calculatorListener();
         return () => removeCalculatorListener();
     }, []);
 
-    function handleClick(event) {
-        let value = event.target.value;
+    function handleNumber(event) {
+        const input = event.target.value;
 
-        if (value === '0' && subDisplay === '0' && mainDisplay === '0')
+        if (input === '0' && mainDisplay === '0')
             return;
 
-        /* Check if user is changing operator */
-        if (isNaN(mainDisplay) && isNaN(value) && !negativeInput) {
-            if (value === '-') {
-                setNegativeInput(true);
-            } else {
-                setMainDisplay(value);
-                setSubDisplay(prev => prev.substring(0, prev.length - 1) + value);
-                return;
-            }
+        switch (inputState) {
+            case inputStates.INTEGER:
+            case inputStates.SIGN:
+            case inputStates.DECIMAL:
+                if (subDisplay === '0') {
+                    setMainDisplay(input);
+                    setSubDisplay(input);
+                } else {
+                    setMainDisplay(prev => prev + input);
+                    setSubDisplay(prev => prev + input);
+                }
+                if (inputState === inputStates.SIGN) setInputState(inputStates.INTEGER);
+                break;
+            case inputStates.OPERATOR:
+                setInputState(inputStates.INTEGER);
+                setMainDisplay(input);
+                setSubDisplay(prev => prev + input);
+                break;
+            case inputStates.EVALUATED:
+                setMainDisplay(input);
+                setSubDisplay(input);
+                setInputState(inputStates.INTEGER);
+                break;
+            default:
+                console.error('Unknown input state: ' + inputState);
+                break;
+        }
+    }
+
+    function handleOperator(event) {
+        const input = event.target.value;
+
+        if (subDisplay === '0') {
+            setMainDisplay(input);
+            setSubDisplay('0' + input);
+            setInputState(inputStates.OPERATOR);
+            return;
         }
 
-        if (evaluated) {
-            setSubDisplay(!isNaN(value) ? value : mainDisplay + value);
-            setMainDisplay(value);
-            setEvaluated(false);
-        } else {
-            setSubDisplay(prev => prev !== '0' ? prev + value : value);
-            setMainDisplay(prev => (!isNaN(value) && !isNaN(prev) && prev !== '0') ? prev + value : value);
+        switch (inputState) {
+            case inputStates.SIGN:
+                if (input === '-') 
+                    break;
+                setInputState(inputStates.OPERATOR);
+                setMainDisplay(input);
+                setSubDisplay(prev => prev.substring(0, prev.length - 2) + input);
+                break;
+            case inputStates.INTEGER:
+            case inputStates.DECIMAL:
+                setInputState(inputStates.OPERATOR);
+                setMainDisplay(input);
+                setSubDisplay(prev => prev + input);
+                break;
+            case inputStates.OPERATOR:
+                if (input === '-') {
+                    setInputState(inputStates.SIGN);
+                    setMainDisplay(input);
+                    setSubDisplay(prev => prev + input);
+                }
+                setMainDisplay(input);
+                setSubDisplay(prev => prev.substring(0, prev.length - 1) + input);
+                break;
+            case inputStates.EVALUATED:
+                setInputState(inputStates.OPERATOR);
+                setSubDisplay(mainDisplay + input);
+                setMainDisplay(input);
+                break;
+            default:
+                console.error('Unknown input state: ' + inputState);
         }
-    };
+
+
+
+    }
 
     function handleDecimal() {
-        if (evaluated) {
-            setMainDisplay('0.');
-            setSubDisplay('0.');
-            setEvaluated(false);
-        } else {
-            if (mainDisplay.includes('.'))
+        switch (inputState) {
+            case inputStates.DECIMAL:
                 return;
-            if (!isNaN(mainDisplay)) {
+            case inputStates.INTEGER:
                 setMainDisplay(prev => prev + '.');
-                setSubDisplay(prev => prev === '' ? '0.' : prev + '.');
-            } else {
+                setSubDisplay(prev => prev + '.');
+                break;
+            case inputStates.OPERATOR:
                 setMainDisplay('0.');
-                setSubDisplay(prev => prev += '0.');
-            }
+                setSubDisplay(prev => prev + '0.');
+                break;
+            case inputStates.EVALUATED:
+                setMainDisplay('0.');
+                setSubDisplay('0.');
+                break;
+            default:
+                console.error('Unknown input state: ' + inputState);
         }
+        setInputState(inputStates.DECIMAL);
+
+
     }
 
     function handleEquals() {
@@ -86,18 +154,18 @@ function Calculator() {
             const result = Parser.evaluate(subDisplay);
             setMainDisplay(result);
             setSubDisplay(prev => prev + '=' + result);
-            setEvaluated(true);
+
         } catch {
             setMainDisplay('0');
             setSubDisplay('ERROR');
-            setEvaluated(true);
         }
+        setInputState(inputStates.EVALUATED);
     };
 
     function handleClear() {
         setMainDisplay('0');
-        setSubDisplay('');
-        setEvaluated(false);
+        setSubDisplay('0');
+        setInputState(inputStates.INTEGER);
     };
 
     return (
@@ -108,8 +176,8 @@ function Calculator() {
             <button id="equals" onClick={handleEquals}>=</button>
             <button id="clear" onClick={handleClear}>C</button>
             <button id="decimal" onClick={handleDecimal}>.</button>
-            {operators.map(op => <OperatorButton key={op.text} operator={op.symbol} operatorLabel={op.text} handleClick={handleClick} />)}
-            {numbers.map(num => <NumberButton key={num.numeral} number={num.numeral} numberLabel={num.text} handleClick={handleClick} />)}
+            {operators.map(op => <OperatorButton key={op.text} operator={op.symbol} operatorLabel={op.text} handleClick={handleOperator} />)}
+            {numbers.map(num => <NumberButton key={num.numeral} number={num.numeral} numberLabel={num.text} handleClick={handleNumber} />)}
         </>
     )
 }
