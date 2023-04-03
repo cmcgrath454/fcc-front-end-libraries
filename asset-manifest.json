@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/fcc-front-end-libraries/static/css/main.fe7cd6c3.css",
-    "main.js": "/fcc-front-end-libraries/static/js/main.7566763b.js",
+    "main.css": "/fcc-front-end-libraries/static/css/main.900da6dc.css",
+    "main.js": "/fcc-front-end-libraries/static/js/main.06e4fb00.js",
     "static/js/787.b239f725.chunk.js": "/fcc-front-end-libraries/static/js/787.b239f725.chunk.js",
     "index.html": "/fcc-front-end-libraries/index.html",
-    "main.fe7cd6c3.css.map": "/fcc-front-end-libraries/static/css/main.fe7cd6c3.css.map",
-    "main.7566763b.js.map": "/fcc-front-end-libraries/static/js/main.7566763b.js.map",
+    "main.900da6dc.css.map": "/fcc-front-end-libraries/static/css/main.900da6dc.css.map",
+    "main.06e4fb00.js.map": "/fcc-front-end-libraries/static/js/main.06e4fb00.js.map",
     "787.b239f725.chunk.js.map": "/fcc-front-end-libraries/static/js/787.b239f725.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe7cd6c3.css",
-    "static/js/main.7566763b.js"
+    "static/css/main.900da6dc.css",
+    "static/js/main.06e4fb00.js"
   ]
 }
