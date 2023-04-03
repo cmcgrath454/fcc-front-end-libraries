@@ -6,23 +6,23 @@ import NumberButton from "./NumberButton"
 import OperatorButton from "./OperatorButton"
 
 const numbers = [
-    { numeral: '1', text: 'one' },
-    { numeral: '2', text: 'two' },
-    { numeral: '3', text: 'three' },
-    { numeral: '4', text: 'four' },
-    { numeral: '5', text: 'five' },
-    { numeral: '6', text: 'six' },
-    { numeral: '7', text: 'seven' },
-    { numeral: '8', text: 'eight' },
     { numeral: '9', text: 'nine' },
+    { numeral: '8', text: 'eight' },
+    { numeral: '7', text: 'seven' },
+    { numeral: '6', text: 'six' },
+    { numeral: '5', text: 'five' },
+    { numeral: '4', text: 'four' },
+    { numeral: '3', text: 'three' },
+    { numeral: '2', text: 'two' },
+    { numeral: '1', text: 'one' },
     { numeral: '0', text: 'zero' },
 ];
 
 const operators = [
-    { symbol: '+', text: 'add' },
-    { symbol: '-', text: 'subtract' },
+    { symbol: '/', text: 'divide' },
     { symbol: '*', text: 'multiply' },
-    { symbol: '/', text: 'divide' }
+    { symbol: '-', text: 'subtract' },
+    { symbol: '+', text: 'add' },
 ]
 
 const inputStates = {
@@ -91,7 +91,7 @@ function Calculator() {
 
         switch (inputState) {
             case inputStates.SIGN:
-                if (input === '-') 
+                if (input === '-')
                     break;
                 setInputState(inputStates.OPERATOR);
                 setMainDisplay(input);
@@ -120,9 +120,6 @@ function Calculator() {
             default:
                 console.error('Unknown input state: ' + inputState);
         }
-
-
-
     }
 
     function handleDecimal() {
@@ -145,8 +142,6 @@ function Calculator() {
                 console.error('Unknown input state: ' + inputState);
         }
         setInputState(inputStates.DECIMAL);
-
-
     }
 
     function handleEquals() {
@@ -171,13 +166,17 @@ function Calculator() {
     return (
         <>
             <Navbar header="Calculator" />
-            <div id="sub-display">{subDisplay}</div>
-            <div id="display">{mainDisplay}</div>
-            <button id="equals" onClick={handleEquals}>=</button>
-            <button id="clear" onClick={handleClear}>C</button>
-            <button id="decimal" onClick={handleDecimal}>.</button>
-            {operators.map(op => <OperatorButton key={op.text} operator={op.symbol} operatorLabel={op.text} handleClick={handleOperator} />)}
-            {numbers.map(num => <NumberButton key={num.numeral} number={num.numeral} numberLabel={num.text} handleClick={handleNumber} />)}
+            <div id="calculator">
+                <div id="sub-display" className="displays">{subDisplay}</div>
+                <div id="display" className="displays">{mainDisplay}</div>
+                <div id="button-grid">
+                    <button id="clear" onClick={handleClear}>C</button>
+                    {operators.map(op => <OperatorButton key={op.text} operator={op.symbol} operatorLabel={op.text} handleClick={handleOperator} />)}
+                    {numbers.map(num => <NumberButton key={num.numeral} number={num.numeral} numberLabel={num.text} handleClick={handleNumber} />)}
+                    <button id="decimal" onClick={handleDecimal}>.</button>
+                    <button id="equals" onClick={handleEquals}>=</button>
+                </div>
+            </div>
         </>
     )
 }
