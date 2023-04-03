@@ -1,6 +1,5 @@
 
 function handleKeyPress(event) {
-    console.log(event.key);
     switch (event.key) {
         case 'Enter':
         case 'Return':
