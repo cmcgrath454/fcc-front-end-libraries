@@ -1,41 +1,41 @@
 @import '/node_modules/github-markdown-css/github-markdown.css';
 
-$git-md-font-stack: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-
+$git-md-font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+	'Segoe UI Emoji';
 
 #editor {
-    width: 100%;
-    height: 40vh;   
-    resize: none;
-    padding: 0.5rem;
-    font-family: $git-md-font-stack;
-    border-radius: 5px;
+	width: 100%;
+	height: 40vh;
+	resize: none;
+	padding: 0.5rem;
+	font-family: $git-md-font-stack;
+	border-radius: 5px;
 
-    @include media-breakpoint-up(md) {
-        // height: 70vh;
-    }
+	@include media-breakpoint-up(md) {
+		// height: 70vh;
+	}
 }
 
 .window-wrapper {
-    width: 95%;
-    margin-inline: auto;
-    padding-block: 0.5rem 1px;
-    padding-inline: 5px;
-    border-radius: 5px;
-    background-color: #e7e7e7;
-    margin-bottom: 1rem;
-    font-family: Bitter;
-    font-weight: 700;    
+	width: 95%;
+	margin-inline: auto;
+	padding-block: 0.5rem 1px;
+	padding-inline: 5px;
+	border-radius: 5px;
+	background-color: #e7e7e7;
+	margin-bottom: 1rem;
+	font-family: Bitter;
+	font-weight: 700;
 
-    &>h2 {
-        text-align: center;
-    }
+	& > h2 {
+		text-align: center;
+	}
 }
 
 #preview {
-    padding: 0.5rem;
+	padding: 0.5rem;
 
-    img {
-        width: 10rem;
-    }
+	img {
+		width: 10rem;
+	}
 }

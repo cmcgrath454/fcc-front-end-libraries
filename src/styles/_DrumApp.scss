@@ -1,66 +1,63 @@
-
 #drum-machine {
-    width: 90%;
-    margin-inline: auto;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    padding: 1rem;
-    border-radius: 10px;
+	width: 90%;
+	margin-inline: auto;
+	background-color: #1a1a1a;
+	color: #ffffff;
+	padding: 1rem;
+	border-radius: 10px;
 
-    #display {
-        min-height: 3rem;
-        background-color: #00a2ff;
-        margin-block: 1rem;
-        font-size: 2rem;
-        text-align: center;
-        margin-inline: 1rem;
-        border-radius: 5px;
-        font-family: 'Cutive Mono';
-    }
+	#display {
+		min-height: 3rem;
+		background-color: #00a2ff;
+		margin-block: 1rem;
+		font-size: 2rem;
+		text-align: center;
+		margin-inline: 1rem;
+		border-radius: 5px;
+		font-family: 'Cutive Mono';
+	}
 
-    @include media-breakpoint-up(md) {
-        width: 80%;
-    }
+	@include media-breakpoint-up(md) {
+		width: 80%;
+	}
 
-    @include media-breakpoint-up(lg) {
-        width: 30%;
+	@include media-breakpoint-up(lg) {
+		width: 30%;
 
-        #display {
-            font-size: 2.5rem;
-            min-height: 4rem;
-        }
-    }
+		#display {
+			font-size: 2.5rem;
+			min-height: 4rem;
+		}
+	}
 }
 
 #drum-pad {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 
-    button {
-        padding-top: 50%;
-        padding-bottom: 50%;
-        position: relative;
-        border: 2px solid black;
-        color: inherit;
-        border-radius: 10px;
-        margin: 5px;
-        background-color: #5a5a5a;
-        transition: background-color 0.5s ease-out;
-        font-family: 'Bitter';
+	button {
+		padding-top: 50%;
+		padding-bottom: 50%;
+		position: relative;
+		border: 2px solid black;
+		color: inherit;
+		border-radius: 10px;
+		margin: 5px;
+		background-color: #5a5a5a;
+		transition: background-color 0.5s ease-out;
+		font-family: 'Bitter';
 
-        .text {
-            font-size: 3rem;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
+		.text {
+			font-size: 3rem;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			pointer-events: none;
+		}
 
-            
-        }
-
-        &.clicked {
-            background-color: #00a2ff;
-        }
-    }
+		&.clicked {
+			background-color: #00a2ff;
+		}
+	}
 }

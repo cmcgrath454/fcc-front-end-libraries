@@ -1,47 +1,45 @@
 #quote-box {
-    width: 90%;
-    margin-inline: auto;
-    text-align: center;
-    border-radius: 5px;
-    font-family: 'Bitter';
-    color: #FFF;
-    padding: 2rem;
-    transition: all 1s ease;
-    margin-top: 10vh;
+	width: 90%;
+	margin-inline: auto;
+	text-align: center;
+	border-radius: 5px;
+	font-family: 'Bitter';
+	color: #fff;
+	padding: 2rem;
+	transition: all 1s ease;
+	margin-top: 10vh;
 
-
-    @include media-breakpoint-up(md) {
-        width: 50%;
-        
-    }
+	@include media-breakpoint-up(md) {
+		width: 50%;
+	}
 }
 
 #author {
-    display: block;
-    text-align: right;
-    font-size: 1rem;
-    margin-bottom: 3rem;
+	display: block;
+	text-align: right;
+	font-size: 1rem;
+	margin-bottom: 3rem;
 
-    &::before {
-        content: "-";
-    }
+	&::before {
+		content: '-';
+	}
 }
 
 blockquote#text {
-    font-size: 1.75rem;
-    padding: 0;
+	font-size: 1.75rem;
+	padding: 0;
 
-    img {
-        width: 1.5rem;
-        margin-right: 0.5rem;
-        vertical-align: top;
-    }
+	img {
+		width: 1.5rem;
+		margin-right: 0.5rem;
+		vertical-align: top;
+	}
 }
 
 #tweet-quote img {
-    width: 2rem;
+	width: 2rem;
 }
 
 #new-quote {
-    background-color: #FFF;
+	background-color: #fff;
 }

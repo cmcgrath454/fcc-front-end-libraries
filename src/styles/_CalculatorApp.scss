@@ -2,85 +2,85 @@ $accent-color: rgb(154, 178, 255);
 $accent-color-transparent: rgba(154, 178, 255, 0.5);
 
 #calculator {
-    width: 95%;
-    height: auto;
-    margin-inline: auto;
-    border: 3px solid #000000;
-    border-radius: 5%;
-    padding: 0.25rem;
-    font-family: 'Bitter';
-    font-size: 1.5rem;
-    text-align: right;
-    max-height: 80vh;
-    
-    @include media-breakpoint-up(md) {
-        width: 50%;
-    }
+	width: 95%;
+	height: auto;
+	margin-inline: auto;
+	border: 3px solid #000000;
+	border-radius: 5%;
+	padding: 0.25rem;
+	font-family: 'Bitter';
+	font-size: 1.5rem;
+	text-align: right;
+	max-height: 80vh;
 
-    @include media-breakpoint-up(xl) {
-        width: 25%;
-    }
+	@include media-breakpoint-up(md) {
+		width: 50%;
+	}
 
-    .displays {
-        padding-block: 0.5rem;
-        padding-inline: 1rem;
-        overflow-x: auto;
-        display: flex;
-        flex-direction: row-reverse;  // Trick to keep scroll overflow at the newest input
-    }
+	@include media-breakpoint-up(xl) {
+		width: 25%;
+	}
 
-    #display {
-        background-color: $accent-color;
-        margin-inline: 1rem;
-        border-radius: 5px;
-        font-size: 3rem;
-        color: #FFF;
-        margin-bottom: 1rem;
-    }
+	.displays {
+		padding-block: 0.5rem;
+		padding-inline: 1rem;
+		overflow-x: auto;
+		display: flex;
+		flex-direction: row-reverse; // Trick to keep scroll overflow at the newest input
+	}
 
-    #sub-display {
-        color: $accent-color;
-    }
+	#display {
+		background-color: $accent-color;
+		margin-inline: 1rem;
+		border-radius: 5px;
+		font-size: 3rem;
+		color: #fff;
+		margin-bottom: 1rem;
+	}
 
-    #button-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        grid-template-areas:
-            "clear clear divide multiply"
-            "seven eight nine subtract"
-            "four five six add"
-            "one two three equals"
-            "zero zero decimal equals";
+	#sub-display {
+		color: $accent-color;
+	}
 
-        $button-ids: "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "add", "subtract", "multiply",
-            "divide", "equals", "clear", "decimal";
+	#button-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+		grid-template-areas:
+			'clear clear divide multiply'
+			'seven eight nine subtract'
+			'four five six add'
+			'one two three equals'
+			'zero zero decimal equals';
 
-        @each $id in $button-ids {
-            ##{$id} {
-                grid-area: #{$id};
-                min-height: 5rem;
-            }
-        }
+		$button-ids: 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'add', 'subtract', 'multiply',
+			'divide', 'equals', 'clear', 'decimal';
 
-        button {
-            border: 0;
-            background-color: inherit;
-            padding: 0;
-            border-radius: 5px;
+		@each $id in $button-ids {
+			##{$id} {
+				grid-area: #{$id};
+				min-height: 5rem;
+			}
+		}
 
-            @media (hover: hover) {
-                &:hover {
-                    background-color: $accent-color-transparent;
-                }
-            }
+		button {
+			border: 0;
+			background-color: inherit;
+			padding: 0;
+			border-radius: 5px;
 
-            &.clicked {
-                background-color: $accent-color-transparent;
-            }
-            &:active {
-                background-color: $accent-color-transparent;
-            }
-        }
-    }
+			@media (hover: hover) {
+				&:hover {
+					background-color: $accent-color-transparent;
+				}
+			}
+
+			&.clicked {
+				background-color: $accent-color-transparent;
+			}
+			&:active {
+				background-color: $accent-color-transparent;
+			}
+		}
+	}
 }

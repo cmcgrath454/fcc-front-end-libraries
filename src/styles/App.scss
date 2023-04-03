@@ -7,13 +7,13 @@
 @import 'CalculatorApp';
 
 nav {
-    &>h1 {
-        flex: 1;
-    }
-    &>:not(h1) {
-        flex: 0.5;
-    }
-    img {
-        width: 2rem;
-    }
+	& > h1 {
+		flex: 1;
+	}
+	& > :not(h1) {
+		flex: 0.5;
+	}
+	img {
+		width: 2rem;
+	}
 }
