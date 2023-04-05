@@ -2,8 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { timerReducer } from './reducer.js';
 import Navbar from '../Navbar';
-import SessionInfo from './SessionInfo';
-import BreakInfo from './BreakInfo';
+import SessionSettings from './SessionSettings.js';
+import BreakSettings from './BreakSettings.js';
 import Timer from './Timer';
 
 function TimerApp() {
@@ -11,11 +11,13 @@ function TimerApp() {
 
 	return (
 		<>
-			<Navbar header='Pomodoro Timer' />
+			<Navbar header='Focus Timer' />
 			<Provider store={store}>
-				<SessionInfo />
-				<BreakInfo />
-				<Timer />
+				<div id='timer'>
+					<SessionSettings />
+					<BreakSettings />
+					<Timer />
+				</div>
 			</Provider>
 		</>
 	);
