@@ -6,16 +6,18 @@ function BreakInfo() {
 	const dispatch = useDispatch();
 
 	return (
-		<>
-			<h2 id='break-label'>Break Length</h2>
-			<p id='break-length'>{breakLength}</p>
-			<button id='break-decrement' onClick={() => dispatch({ type: DECREMENT_BREAK })}>
-				V
-			</button>
-			<button id='break-increment' onClick={() => dispatch({ type: INCREMENT_BREAK })}>
-				^
-			</button>
-		</>
+		<div id='break-settings'>
+			<h2 id='break-label'>Break Time</h2>
+			<div className='settings'>
+				<button id='break-decrement' onClick={() => dispatch({ type: DECREMENT_BREAK })}>
+					<img src={process.env.PUBLIC_URL + '/images/down-arrow.png'} alt='down arrow' />
+				</button>
+				<p id='break-length'>{breakLength}</p>
+				<button id='break-increment' onClick={() => dispatch({ type: INCREMENT_BREAK })}>
+					<img src={process.env.PUBLIC_URL + '/images/up-arrow.png'} alt='up arrow' />
+				</button>
+			</div>
+		</div>
 	);
 }
 

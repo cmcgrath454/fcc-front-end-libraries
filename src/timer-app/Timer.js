@@ -22,12 +22,16 @@ function Timer() {
 
 	const minutesLeft = String(Math.floor(state.secondsLeft / 60)).padStart(2, '0');
 	const secondsLeft = String(state.secondsLeft % 60).padStart(2, '0');
+	const playPauseImg = intervalID ? 'pause.png' : 'play.png';
 
 	return (
-		<>
+		<div id='timer'>
 			<h2 id='timer-label'>{(state.isBreak && 'Break') || 'Session'} Time</h2>
+			<p id='time-left'>
+				{minutesLeft}:{secondsLeft}
+			</p>
 			<button id='start_stop' onClick={startStopTimer}>
-				Play/Pause
+				<img src={process.env.PUBLIC_URL + '/images/' + playPauseImg} alt='play' />
 			</button>
 			<button
 				id='reset'
@@ -38,13 +42,11 @@ function Timer() {
 					}
 					dispatch({ type: RESET });
 				}}>
-				Reset
+				<img src={process.env.PUBLIC_URL + '/images/reset.png'} alt='reset' />
 			</button>
-			<p id='time-left'>
-				{minutesLeft}:{secondsLeft}
-			</p>
+
 			<audio id='beep' src={process.env.PUBLIC_URL + '/sounds/timer_done.wav'} />
-		</>
+		</div>
 	);
 }
 

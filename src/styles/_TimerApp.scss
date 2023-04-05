@@ -1,0 +1,74 @@
+#timer-app {
+	background-color: #ff7171;
+	width: 95%;
+	margin-inline: auto;
+	padding: 1rem;
+	border-radius: 10px;
+	font-family: 'Bitter';
+	color: white;
+	text-align: center;
+	display: grid;
+
+	@include media-breakpoint-up(md) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		width: 50%;
+
+		div:last-child {
+			grid-column: 1 / 3;
+			margin-inline: auto;
+		}
+	}
+
+	h2 {
+		font-size: 1.45rem;
+
+		@include media-breakpoint-up(md) {
+			font-size: 2.5rem;
+		}
+	}
+
+	p {
+		font-family: 'Cutive Mono';
+		margin: 0;
+		font-size: 2.25rem;
+		font-weight: 700;
+
+		@include media-breakpoint-up(md) {
+			font-size: 3.5rem;
+		}
+	}
+
+	#time-left {
+		display: block;
+		margin: 0;
+	}
+
+	#timer {
+		font-size: 3rem;
+		border: 1px solid white;
+		border-radius: 5px;
+
+		img {
+			width: 2rem;
+			margin-inline: 1rem;
+		}
+	}
+
+	.settings {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+
+		img {
+			width: 1.5rem;
+		}
+	}
+
+	button {
+		background-color: inherit;
+		border: none;
+		height: auto;
+	}
+}

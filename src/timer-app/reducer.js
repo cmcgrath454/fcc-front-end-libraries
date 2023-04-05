@@ -8,7 +8,6 @@ const defaultState = {
 	sessionLength: defaultSession,
 	isBreak: false,
 	secondsLeft: defaultSession * 60,
-	isTicking: false,
 };
 
 export const timerReducer = (state = defaultState, action) => {
@@ -25,8 +24,6 @@ export const timerReducer = (state = defaultState, action) => {
 		case actions.DECREMENT_SESSION:
 			if (state.sessionLength <= 1) return state;
 			return { ...state, sessionLength: state.sessionLength - 1, secondsLeft: (state.sessionLength - 1) * 60 };
-		case actions.START_STOP:
-			return { ...state, isTicking: !state.isTicking };
 		case actions.TICK:
 			if (state.secondsLeft <= 0) {
 				document.querySelector('#beep').play();

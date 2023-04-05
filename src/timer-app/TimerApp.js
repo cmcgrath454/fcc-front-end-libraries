@@ -13,7 +13,7 @@ function TimerApp() {
 		<>
 			<Navbar header='Focus Timer' />
 			<Provider store={store}>
-				<div id='timer'>
+				<div id='timer-app'>
 					<SessionSettings />
 					<BreakSettings />
 					<Timer />
