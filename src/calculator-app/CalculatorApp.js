@@ -4,7 +4,7 @@ import { calculatorListener, removeCalculatorListener } from './CalculatorKeyLis
 import Navbar from '../Navbar';
 import NumberButton from './NumberButton';
 import OperatorButton from './OperatorButton';
-import { colors } from '../App';
+import { colors } from '../AppRoutes';
 
 const numbers = [
 	{ numeral: '9', text: 'nine' },
