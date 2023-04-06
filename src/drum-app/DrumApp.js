@@ -14,8 +14,11 @@ const sounds = [
 	{ key: 'C', source: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3', name: 'Closed HH' },
 ];
 
-function DrumApp() {
+function DrumApp(props) {
 	const [soundPlayed, setSoundPlayed] = useState('');
+	const [accentColor, setAccentColor] = useState('');
+
+	props.setBgColor('#222');
 
 	function getAndPlaySound(event) {
 		const btn = document.getElementById(event.key.toUpperCase() + '-sound-btn');
@@ -33,12 +36,18 @@ function DrumApp() {
 
 	return (
 		<>
-			<Navbar header='Drum Kit' />
-			<div id='drum-machine'>
+			<Navbar header='Drum Kit' color='#fff' />
+			<div id='drum-machine' style={{ '--accent-color': accentColor }}>
 				<div id='display'>{soundPlayed}</div>
 				<div id='drum-pad'>
 					{sounds.map((sound) => (
-						<DrumButton key={sound.key} sound={sound} setSoundPlayed={setSoundPlayed} />
+						<DrumButton
+							key={sound.key}
+							sound={sound}
+							setSoundPlayed={setSoundPlayed}
+							setAccentColor={setAccentColor}
+							getNextColor={props.getNextColor}
+						/>
 					))}
 				</div>
 			</div>

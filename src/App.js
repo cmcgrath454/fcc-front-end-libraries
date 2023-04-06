@@ -35,7 +35,7 @@ function App() {
 					<Route path='/quote-machine' element={<QuoteApp setBgColor={setBgColor} getNextColor={getNextColor} />} />
 					<Route path='/markdown' element={<MarkdownApp setBgColor={setBgColor} />} />
 					<Route path='/calculator' element={<CalculatorApp setBgColor={setBgColor} getNextColor={getNextColor} />} />
-					<Route path='/drum-pad' element={<DrumApp setBgColor={setBgColor} />} />
+					<Route path='/drum-pad' element={<DrumApp setBgColor={setBgColor} getNextColor={getNextColor} />} />
 					<Route path='/focus-timer' element={<TimerApp setBgColor={setBgColor} />} />
 				</Routes>
 			</HashRouter>

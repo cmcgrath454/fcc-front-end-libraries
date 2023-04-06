@@ -1,5 +1,6 @@
 function DrumButton(props) {
 	function playSound(event) {
+		props.setAccentColor(props.getNextColor());
 		event.preventDefault();
 		event.target.classList.add('clicked');
 		setTimeout(() => {
