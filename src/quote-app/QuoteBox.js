@@ -8,6 +8,9 @@ function QuoteBox(props) {
 	const [author, setAuthor] = useState('');
 	const [colorIndex, setColorIndex] = useState(0);
 
+	const accentColor = colors[colorIndex];
+	props.setBgColor(accentColor);
+
 	const newQuote = () => {
 		fetch('https://api.quotable.io/random?maxLength=80')
 			.then((response) => response.json())
@@ -23,12 +26,10 @@ function QuoteBox(props) {
 		newQuote();
 	}, []);
 
-	props.setBgColor(colors[colorIndex]);
-
 	return (
-		<section id='quote-box' style={{ color: colors[colorIndex] }}>
+		<section id='quote-box' style={{ color: accentColor }}>
 			<blockquote id='text'>
-				<QuoteSVG color={colors[colorIndex]} />
+				<QuoteSVG color={accentColor} />
 				{quote}
 			</blockquote>
 			<cite id='author'>{author}</cite>
@@ -38,9 +39,9 @@ function QuoteBox(props) {
 					id='tweet-quote'
 					target='_blank'
 					rel='noreferrer'>
-					<TwitterSVG color={colors[colorIndex]} />
+					<TwitterSVG color={accentColor} />
 				</a>
-				<button id='new-quote' onClick={newQuote} className='btn' style={{ backgroundColor: colors[colorIndex] }}>
+				<button id='new-quote' onClick={newQuote} className='btn' style={{ backgroundColor: accentColor }}>
 					New Quote
 				</button>
 			</div>
