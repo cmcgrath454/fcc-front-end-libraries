@@ -5,7 +5,7 @@ function QuoteApp(props) {
 	return (
 		<>
 			<Navbar header='Quote Machine' color='#fff' />
-			<QuoteBox setBgColor={props.setBgColor} />
+			<QuoteBox setBgColor={props.setBgColor} getNextColor={props.getNextColor} />
 		</>
 	);
 }

@@ -2,7 +2,7 @@ function TwitterSVG(props) {
 	return (
 		<>
 			<svg viewBox='0 -2 20 20' version='1.1'>
-				<g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+				<g id='Page-1' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
 					<g id='Dribbble-Light-Preview' transform='translate(-60.000000, -7521.000000)'>
 						<g id='icons' transform='translate(56.000000, 160.000000)'>
 							<path
@@ -19,13 +19,13 @@ function TwitterSVG(props) {
 
 function QuoteSVG(props) {
 	return (
-		<svg clip-rule='evenodd' fill-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2' version='1.1' viewBox='0 0 64 64'>
+		<svg clipRule='evenodd' fillRule='evenodd' strokeLinejoin='round' strokeMiterlimit='2' version='1.1' viewBox='0 0 64 64'>
 			<rect x='-640' width='1280' height='800' fill='none' />
 			<g>
 				<path
 					style={{ fill: props.color, transition: 'fill 1s ease' }}
 					d='m27.194 12v8.025c-2.537 0.14-4.458 0.603-5.761 1.39-1.304 0.787-2.22 2.063-2.749 3.829-0.528 1.766-0.793 4.292-0.793 7.579h9.303v19.145h-19.081v-18.201c0-7.518 1.612-13.025 4.836-16.522 3.225-3.497 7.973-5.245 14.245-5.245zm28.806 0v8.025c-2.537 0.14-4.457 0.586-5.761 1.338-1.304 0.751-2.247 2.028-2.828 3.829-0.581 1.8-0.872 4.344-0.872 7.631h9.461v19.145h-19.186v-18.201c0-7.518 1.603-13.025 4.809-16.522 3.207-3.497 7.999-5.245 14.377-5.245z'
-					fill-rule='nonzero'
+					fillRule='nonzero'
 				/>
 			</g>
 		</svg>
