@@ -39,6 +39,10 @@ $link-ids: 'calculator-link', 'markdown-link', 'drum-link', 'quote-link', 'timer
 	}
 
 	@include media-breakpoint-up(md) {
+		p {
+			width: 60%;
+		}
+
 		nav {
 			width: 70%;
 			gap: 1rem;
