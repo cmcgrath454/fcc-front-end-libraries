@@ -5,22 +5,30 @@
 @import 'DrumApp';
 @import 'CalculatorApp';
 @import 'TimerApp';
+@import 'Home';
 
 div#app {
 	min-height: 100vh;
 	transition: background-color 1s ease;
+	@include ff-primary();
+}
+
+h1 {
+	@include ff-accent-italics(medium);
+	margin-block: 1rem;
+	font-size: 2.25rem;
+
+	@include media-breakpoint-up(md) {
+		font-size: 3rem;
+		margin-block: 1.5rem;
+	}
 }
 
 nav {
-	& > h1 {
-		@include ff-accent-italics(medium);
-		margin: 0;
-		font-size: 2.25rem;
+	h1 {
 		flex: 1;
-		@include media-breakpoint-up(md) {
-			font-size: 3rem;
-		}
 	}
+
 	& > :not(h1) {
 		flex: 0.5;
 	}

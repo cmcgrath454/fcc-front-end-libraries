@@ -7,8 +7,7 @@ function SessionInfo() {
 
 	return (
 		<div id='session-settings'>
-			<h2 id='session-label'>Session Time</h2>
-			<div className='settings'>
+			<div className='controls'>
 				<button id='session-decrement' onClick={() => dispatch({ type: DECREMENT_SESSION })}>
 					<img src={process.env.PUBLIC_URL + '/images/down-arrow.png'} alt='down arrow' />
 				</button>
@@ -17,6 +16,7 @@ function SessionInfo() {
 					<img src={process.env.PUBLIC_URL + '/images/up-arrow.png'} alt='up arrow' />
 				</button>
 			</div>
+			<h2 id='session-label'>Session Time</h2>
 		</div>
 	);
 }

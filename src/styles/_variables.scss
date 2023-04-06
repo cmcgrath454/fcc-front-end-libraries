@@ -12,3 +12,14 @@ $ff-primary: 'Karla';
 	font-style: italic;
 	font-weight: $weight;
 }
+
+@mixin ff-primary($weight: normal) {
+	font-family: $ff-primary;
+	font-weight: $weight;
+}
+
+@mixin ff-primary-italics($weight: normal) {
+	font-family: $ff-primary;
+	font-style: italic;
+	font-weight: $weight;
+}

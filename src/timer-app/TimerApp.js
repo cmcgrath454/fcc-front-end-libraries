@@ -6,7 +6,7 @@ import SessionSettings from './SessionSettings.js';
 import BreakSettings from './BreakSettings.js';
 import Timer from './Timer';
 
-function TimerApp() {
+function TimerApp(props) {
 	const store = configureStore({ reducer: timerReducer });
 
 	return (
@@ -14,9 +14,9 @@ function TimerApp() {
 			<Navbar header='Focus Timer' />
 			<Provider store={store}>
 				<div id='timer-app'>
+					<Timer />
 					<SessionSettings />
 					<BreakSettings />
-					<Timer />
 				</div>
 			</Provider>
 		</>

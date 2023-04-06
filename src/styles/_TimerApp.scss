@@ -1,5 +1,5 @@
 #timer-app {
-	background-color: #ff7171;
+	background-color: #58a0ff;
 	width: 95%;
 	margin-inline: auto;
 	padding: 1rem;
@@ -8,67 +8,83 @@
 	color: white;
 	text-align: center;
 	display: grid;
+	transition: bg-color 1s ease;
 
 	@include media-breakpoint-up(md) {
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
-		width: 50%;
+		width: fit-content;
 
-		div:last-child {
+		div:first-child {
 			grid-column: 1 / 3;
 			margin-inline: auto;
-		}
-	}
-
-	h2 {
-		font-size: 1.45rem;
-
-		@include media-breakpoint-up(md) {
-			font-size: 2.5rem;
-		}
-	}
-
-	p {
-		font-family: 'Cutive Mono';
-		margin: 0;
-		font-size: 2.25rem;
-		font-weight: 700;
-
-		@include media-breakpoint-up(md) {
-			font-size: 3.5rem;
-		}
-	}
-
-	#time-left {
-		display: block;
-		margin: 0;
-	}
-
-	#timer {
-		font-size: 3rem;
-		border: 1px solid white;
-		border-radius: 5px;
-
-		img {
-			width: 2rem;
-			margin-inline: 1rem;
-		}
-	}
-
-	.settings {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 1rem;
-
-		img {
-			width: 1.5rem;
 		}
 	}
 
 	button {
 		background-color: inherit;
 		border: none;
-		height: auto;
+	}
+
+	p {
+		margin: 0;
+		font-size: 2rem;
+	}
+
+	#timer {
+		font-size: 3rem;
+		border-radius: 5px;
+
+		#time-left {
+			font-size: 5rem;
+			display: block;
+			margin: 0;
+		}
+
+		h2 {
+			font-size: 2rem;
+			margin: 0;
+		}
+
+		img {
+			width: 2rem;
+			display: block;
+		}
+
+		button {
+			margin-inline: 1rem;
+		}
+	}
+
+	#break-settings,
+	#session-settings {
+		align-self: end;
+		margin-block: 0.5rem;
+
+		@include media-breakpoint-up(md) {
+			margin-inline: 4rem;
+		}
+
+		.controls {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 1rem;
+
+			img {
+				width: 1.5rem;
+			}
+		}
+
+		h2 {
+			font-size: 1rem;
+
+			@include media-breakpoint-up(md) {
+				font-size: 1rem;
+			}
+		}
+	}
+
+	#session-settings {
+		margin-top: 2rem;
 	}
 }

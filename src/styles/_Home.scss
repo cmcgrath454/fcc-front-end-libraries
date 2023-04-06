@@ -1,0 +1,71 @@
+$link-ids: 'calculator-link', 'markdown-link', 'drum-link', 'quote-link', 'timer-link', 'learned-link';
+
+#home {
+	text-align: center;
+
+	p {
+		width: 90%;
+		margin-inline: auto;
+	}
+
+	nav {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+
+		width: 95%;
+		height: 60vh;
+		margin-inline: auto;
+		margin-block: 2rem;
+
+		gap: 0.5rem;
+		justify-content: center;
+		align-items: center;
+
+		@each $id in $link-ids {
+			a##{$id} {
+				width: 100%;
+				height: 100%;
+				background-image: url('../assets/app-covers/' + $id + '.png');
+				background-size: cover;
+				background-position: center;
+				border-radius: 5px;
+				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+				span {
+					display: none;
+				}
+			}
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		nav {
+			width: 70%;
+			gap: 1rem;
+
+			@each $id in $link-ids {
+				a##{$id} {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					text-decoration: none;
+
+					span {
+						font-size: 3rem;
+						color: white;
+					}
+
+					&:hover {
+						background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/app-covers/' + $id + '.png');
+						background-size: cover;
+						background-position: center;
+
+						span {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
+}

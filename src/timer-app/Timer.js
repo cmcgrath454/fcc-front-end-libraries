@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { RESET, TICK } from './actions';
 import { useSelector, useDispatch } from 'react-redux';
 
-function Timer() {
+function Timer(props) {
 	const state = useSelector((state) => state);
 	const dispatch = useDispatch();
 	const [intervalID, setIntervalID] = useState(null);

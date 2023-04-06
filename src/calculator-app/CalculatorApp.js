@@ -41,8 +41,6 @@ function Calculator(props) {
 	const [inputState, setInputState] = useState(inputStates.INTEGER);
 	const [accentColor, setAccentColor] = useState(colors[0]);
 
-	props.setBgColor(accentColor);
-
 	useEffect(() => {
 		calculatorListener();
 		return () => removeCalculatorListener();
@@ -155,7 +153,9 @@ function Calculator(props) {
 			setMainDisplay('0');
 			setSubDisplay('ERROR');
 		}
-		setAccentColor(props.getNextColor());
+		const newColor = props.getNextColor();
+		setAccentColor(newColor);
+		props.setBgColor(newColor);
 		setInputState(inputStates.EVALUATED);
 	}
 

@@ -9,16 +9,17 @@ import DrumApp from './drum-app/DrumApp';
 import TimerApp from './timer-app/TimerApp';
 
 export const colors = [
-	'rgb(0, 35, 91)',
-	'rgb(226, 24, 24)',
-	'rgb(38, 70, 83)',
-	'rgb(255, 221, 131)',
-	'rgb(231, 111, 81)',
-	'rgb(152, 223, 214)',
+	'rgb(226, 109, 80)',
+	'rgb(73, 146, 231)',
+	'rgb(229, 183, 66)',
+	'rgb(58, 157, 143)',
+	'rgb(142, 77, 118)',
+	'rgb(240, 161, 96)',
+	'rgb(43, 88, 137)',
 ];
 
 function App() {
-	const [bgColor, setBgColor] = useState('pink');
+	const [bgColor, setBgColor] = useState('#fff');
 	const [colorIndex, setColorIndex] = useState(1); //Set to 1 so we can use 0 as the initial state in children
 
 	function getNextColor() {

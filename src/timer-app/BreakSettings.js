@@ -7,8 +7,7 @@ function BreakInfo() {
 
 	return (
 		<div id='break-settings'>
-			<h2 id='break-label'>Break Time</h2>
-			<div className='settings'>
+			<div className='controls'>
 				<button id='break-decrement' onClick={() => dispatch({ type: DECREMENT_BREAK })}>
 					<img src={process.env.PUBLIC_URL + '/images/down-arrow.png'} alt='down arrow' />
 				</button>
@@ -17,6 +16,7 @@ function BreakInfo() {
 					<img src={process.env.PUBLIC_URL + '/images/up-arrow.png'} alt='up arrow' />
 				</button>
 			</div>
+			<h2 id='break-label'>Break Time</h2>
 		</div>
 	);
 }
