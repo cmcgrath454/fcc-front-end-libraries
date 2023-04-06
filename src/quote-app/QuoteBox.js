@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
+import { TwitterSVG, QuoteSVG } from './QuoteSVGs';
 
 const colors = ['#00235B', '#E21818', '#264653', '#FFDD83', '#e76f51', '#98DFD6'];
 
-function QuoteBox() {
+function QuoteBox(props) {
 	const [quote, setQuote] = useState('');
 	const [author, setAuthor] = useState('');
 	const [colorIndex, setColorIndex] = useState(0);
@@ -22,12 +23,12 @@ function QuoteBox() {
 		newQuote();
 	}, []);
 
-	const bgColor = colors[colorIndex];
+	props.setBgColor(colors[colorIndex]);
 
 	return (
-		<section id='quote-box' style={{ backgroundColor: bgColor }}>
+		<section id='quote-box' style={{ color: colors[colorIndex] }}>
 			<blockquote id='text'>
-				<img src={process.env.PUBLIC_URL + '/images/quote.png'} alt='quote' />
+				<QuoteSVG color={colors[colorIndex]} />
 				{quote}
 			</blockquote>
 			<cite id='author'>{author}</cite>
@@ -37,9 +38,9 @@ function QuoteBox() {
 					id='tweet-quote'
 					target='_blank'
 					rel='noreferrer'>
-					<img src={process.env.PUBLIC_URL + '/images/twitter.png'} alt='twitter post button' />
+					<TwitterSVG color={colors[colorIndex]} />
 				</a>
-				<button id='new-quote' onClick={newQuote} className='btn' style={{ color: bgColor }}>
+				<button id='new-quote' onClick={newQuote} className='btn' style={{ backgroundColor: colors[colorIndex] }}>
 					New Quote
 				</button>
 			</div>

@@ -1,11 +1,11 @@
 import Navbar from '../Navbar';
 import QuoteBox from './QuoteBox';
 
-function QuoteApp() {
+function QuoteApp(props) {
 	return (
 		<>
-			<Navbar header='Quote Machine' />
-			<QuoteBox />
+			<Navbar header='Quote Machine' color='#fff' />
+			<QuoteBox setBgColor={props.setBgColor} />
 		</>
 	);
 }

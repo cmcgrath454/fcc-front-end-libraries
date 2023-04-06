@@ -1,19 +1,26 @@
 @import '/node_modules/bootstrap/scss/bootstrap.scss';
-@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+@import 'variables';
 @import 'QuoteApp';
 @import 'MarkdownApp';
 @import 'DrumApp';
 @import 'CalculatorApp';
+@import 'TimerApp';
+
+div#app {
+	min-height: 100vh;
+	transition: background-color 1s ease;
+}
 
 nav {
 	& > h1 {
+		@include ff-accent-italics(medium);
+		font-size: 3rem;
 		flex: 1;
 	}
 	& > :not(h1) {
 		flex: 0.5;
 	}
-	img {
-		width: 2rem;
+	svg {
+		width: 5rem;
 	}
 }
