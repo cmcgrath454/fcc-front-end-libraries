@@ -12,7 +12,7 @@
 
 	@include media-breakpoint-up(md) {
 		grid-template-columns: 1fr 1fr;
-		width: fit-content;
+		width: 40%;
 
 		div:first-child {
 			grid-column: 1 / 3;
