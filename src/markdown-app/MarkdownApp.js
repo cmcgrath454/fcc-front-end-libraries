@@ -30,9 +30,10 @@ or images
 ![Markdown Logo](https://img.icons8.com/small/512/markdown.png)
 `;
 
-function MarkdownApp() {
+function MarkdownApp(props) {
 	const [input, setInput] = useState(exampleText);
 	const [markdown, setMarkdown] = useState('');
+	props.setBgColor('#404040');
 
 	useEffect(() => {
 		setMarkdown(parse(input), [{ breaks: true }]);
@@ -40,8 +41,8 @@ function MarkdownApp() {
 
 	return (
 		<>
-			<Navbar header='Markdown Editor' />
-			<div className='d-md-flex gap-md-5 mx-md-5 align-items-start'>
+			<Navbar header='Markdown Editor' color='#fff' />
+			<div id='markdown-app'>
 				<MarkdownEditor text={input} setText={setInput} />
 				<MarkdownPreview markdown={markdown} />
 			</div>

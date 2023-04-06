@@ -1,7 +1,7 @@
 function MarkdownEditor(props) {
 	return (
 		<div className='window-wrapper'>
-			<h2>Editor</h2>
+			<h2>editor.md</h2>
 			<textarea
 				id='editor'
 				spellCheck='false'
