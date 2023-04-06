@@ -43,8 +43,9 @@ function Calculator(props) {
 
 	useEffect(() => {
 		calculatorListener();
+		props.setBgColor(accentColor);
 		return () => removeCalculatorListener();
-	}, []);
+	});
 
 	function handleNumber(event) {
 		const input = event.target.value;

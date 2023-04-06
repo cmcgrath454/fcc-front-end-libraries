@@ -18,8 +18,6 @@ function DrumApp(props) {
 	const [soundPlayed, setSoundPlayed] = useState('');
 	const [accentColor, setAccentColor] = useState('');
 
-	props.setBgColor('#222');
-
 	function getAndPlaySound(event) {
 		const btn = document.getElementById(event.key.toUpperCase() + '-sound-btn');
 		btn?.focus();
@@ -29,10 +27,11 @@ function DrumApp(props) {
 
 	useEffect(() => {
 		window.addEventListener('keydown', getAndPlaySound);
+		props.setBgColor('#222');
 		return () => {
 			window.removeEventListener('keydown', getAndPlaySound);
 		};
-	}, []);
+	});
 
 	return (
 		<>

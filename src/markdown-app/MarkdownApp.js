@@ -33,7 +33,10 @@ or images
 function MarkdownApp(props) {
 	const [input, setInput] = useState(exampleText);
 	const [markdown, setMarkdown] = useState('');
-	props.setBgColor('#404040');
+
+	useEffect(() => {
+		props.setBgColor('#404040');
+	});
 
 	useEffect(() => {
 		setMarkdown(parse(input), [{ breaks: true }]);
