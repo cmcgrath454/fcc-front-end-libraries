@@ -1,17 +1,17 @@
-$accent-color: rgb(154, 178, 255);
-$accent-color-transparent: rgba(154, 178, 255, 0.5);
-
 #calculator {
 	width: 95%;
 	height: auto;
 	margin-inline: auto;
-	border: 3px solid #000000;
-	border-radius: 5%;
+	border: 3px solid var(--accent-color);
+	border-radius: 10px;
 	padding: 0.25rem;
 	font-family: 'Bitter';
 	font-size: 1.5rem;
 	text-align: right;
 	max-height: 80vh;
+	background-color: #fff;
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+	transition: all 1s ease;
 
 	@include media-breakpoint-up(md) {
 		width: 50%;
@@ -27,19 +27,20 @@ $accent-color-transparent: rgba(154, 178, 255, 0.5);
 		overflow-x: auto;
 		display: flex;
 		flex-direction: row-reverse; // Trick to keep scroll overflow at the newest input
-	}
 
-	#display {
-		background-color: $accent-color;
-		margin-inline: 1rem;
-		border-radius: 5px;
-		font-size: 3rem;
-		color: #fff;
-		margin-bottom: 1rem;
-	}
+		&#display {
+			margin-inline: 1rem;
+			border-radius: 10px;
+			font-size: 3rem;
+			color: #fff;
+			background-color: var(--accent-color-transparent);
+			transition: background-color 1s ease;
+			margin-bottom: 1rem;
+		}
 
-	#sub-display {
-		color: $accent-color;
+		&#sub-display {
+			color: var(--accent-color);
+		}
 	}
 
 	#button-grid {
@@ -68,18 +69,33 @@ $accent-color-transparent: rgba(154, 178, 255, 0.5);
 			background-color: inherit;
 			padding: 0;
 			border-radius: 5px;
+			box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+			color: var(--accent-color);
+			transition: color 1s ease;
+			font-weight: bold;
 
 			@media (hover: hover) {
 				&:hover {
-					background-color: $accent-color-transparent;
+					background-color: var(--accent-color-transparent);
+					box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 				}
 			}
 
+			&:active,
 			&.clicked {
-				background-color: $accent-color-transparent;
+				background-color: var(--accent-color-transparent);
+				box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 			}
-			&:active {
-				background-color: $accent-color-transparent;
+
+			&#equals:active,
+			&#equals.clicked {
+				background-color: var(--accent-color);
+			}
+
+			&#equals {
+				color: #fff;
+				background-color: var(--accent-color-transparent);
+				transition: background-color 1s ease;
 			}
 		}
 	}

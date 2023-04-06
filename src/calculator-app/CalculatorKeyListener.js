@@ -3,55 +3,55 @@ function handleKeyPress(event) {
 		case 'Enter':
 		case 'Return':
 		case '=':
-			document.getElementById('equals').click();
+			clickCalculatorButton(document.getElementById('equals'));
 			break;
 		case 'Escape':
-			document.getElementById('clear').click();
+			clickCalculatorButton(document.getElementById('clear'));
 			break;
 		case '+':
-			document.getElementById('add').click();
+			clickCalculatorButton(document.getElementById('add'));
 			break;
 		case '-':
-			document.getElementById('subtract').click();
+			clickCalculatorButton(document.getElementById('subtract'));
 			break;
 		case '*':
-			document.getElementById('multiply').click();
+			clickCalculatorButton(document.getElementById('multiply'));
 			break;
 		case '/':
-			document.getElementById('divide').click();
+			clickCalculatorButton(document.getElementById('divide'));
 			break;
 		case '.':
-			document.getElementById('decimal').click();
+			clickCalculatorButton(document.getElementById('decimal'));
 			break;
 		case '1':
-			document.getElementById('one').click();
+			clickCalculatorButton(document.getElementById('one'));
 			break;
 		case '2':
-			document.getElementById('two').click();
+			clickCalculatorButton(document.getElementById('two'));
 			break;
 		case '3':
-			document.getElementById('three').click();
+			clickCalculatorButton(document.getElementById('three'));
 			break;
 		case '4':
-			document.getElementById('four').click();
+			clickCalculatorButton(document.getElementById('four'));
 			break;
 		case '5':
-			document.getElementById('five').click();
+			clickCalculatorButton(document.getElementById('five'));
 			break;
 		case '6':
-			document.getElementById('six').click();
+			clickCalculatorButton(document.getElementById('six'));
 			break;
 		case '7':
-			document.getElementById('seven').click();
+			clickCalculatorButton(document.getElementById('seven'));
 			break;
 		case '8':
-			document.getElementById('eight').click();
+			clickCalculatorButton(document.getElementById('eight'));
 			break;
 		case '9':
-			document.getElementById('nine').click();
+			clickCalculatorButton(document.getElementById('nine'));
 			break;
 		case '0':
-			document.getElementById('zero').click();
+			clickCalculatorButton(document.getElementById('zero'));
 			break;
 		default:
 			break;
@@ -64,6 +64,14 @@ const calculatorListener = () => {
 
 const removeCalculatorListener = () => {
 	window.removeEventListener('keydown', handleKeyPress);
+};
+
+const clickCalculatorButton = (button) => {
+	button.click();
+	button.classList.add('clicked');
+	setTimeout(() => {
+		button.classList.remove('clicked');
+	}, 100);
 };
 
 export { calculatorListener, removeCalculatorListener };

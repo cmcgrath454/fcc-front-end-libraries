@@ -8,12 +8,20 @@ import CalculatorApp from './calculator-app/CalculatorApp';
 import DrumApp from './drum-app/DrumApp';
 import TimerApp from './timer-app/TimerApp';
 
+export const colors = [
+	'rgb(0, 35, 91)',
+	'rgb(226, 24, 24)',
+	'rgb(38, 70, 83)',
+	'rgb(255, 221, 131)',
+	'rgb(231, 111, 81)',
+	'rgb(152, 223, 214)',
+];
+
 function App() {
 	const [bgColor, setBgColor] = useState('pink');
-	const [colorIndex, setColorIndex] = useState(0);
+	const [colorIndex, setColorIndex] = useState(1); //Set to 1 so we can use 0 as the initial state in children
 
 	function getNextColor() {
-		const colors = ['#00235B', '#E21818', '#264653', '#FFDD83', '#e76f51', '#98DFD6'];
 		const color = colors[colorIndex];
 		setColorIndex((index) => (index >= colors.length - 1 ? 0 : index + 1));
 		return color;

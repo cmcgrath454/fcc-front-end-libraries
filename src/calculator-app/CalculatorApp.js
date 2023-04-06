@@ -4,6 +4,7 @@ import { calculatorListener, removeCalculatorListener } from './CalculatorKeyLis
 import Navbar from '../Navbar';
 import NumberButton from './NumberButton';
 import OperatorButton from './OperatorButton';
+import { colors } from '../App';
 
 const numbers = [
 	{ numeral: '9', text: 'nine' },
@@ -34,10 +35,13 @@ const inputStates = {
 	ERROR: 'ERROR',
 };
 
-function Calculator() {
+function Calculator(props) {
 	const [mainDisplay, setMainDisplay] = useState('0');
 	const [subDisplay, setSubDisplay] = useState('0');
 	const [inputState, setInputState] = useState(inputStates.INTEGER);
+	const [accentColor, setAccentColor] = useState(colors[0]);
+
+	props.setBgColor(accentColor);
 
 	useEffect(() => {
 		calculatorListener();
@@ -151,6 +155,7 @@ function Calculator() {
 			setMainDisplay('0');
 			setSubDisplay('ERROR');
 		}
+		setAccentColor(props.getNextColor());
 		setInputState(inputStates.EVALUATED);
 	}
 
@@ -160,10 +165,20 @@ function Calculator() {
 		setInputState(inputStates.INTEGER);
 	}
 
+	function increaseOpacity(rgbColor, opacity) {
+		const newColor = rgbColor.replace('rgb', 'rgba');
+		return newColor.replace(')', `, ${opacity})`);
+	}
+
+	const cssVariables = {
+		'--accent-color': accentColor,
+		'--accent-color-transparent': increaseOpacity(accentColor, 0.5),
+	};
+
 	return (
 		<>
-			<Navbar header='Calculator' />
-			<div id='calculator'>
+			<Navbar header='Calculator' color='#fff' />
+			<div id='calculator' style={cssVariables}>
 				<div id='sub-display' className='displays'>
 					{subDisplay}
 				</div>
