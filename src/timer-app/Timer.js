@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { RESET, TICK } from './actions';
 import { useSelector, useDispatch } from 'react-redux';
+import resetBtn from '../assets/icons/reset.png';
+import playBtn from '../assets/icons/play.png';
+import pauseBtn from '../assets/icons/pause.png';
+import timerSound from '../assets/sounds/timer_done.wav';
 
-function Timer(props) {
+function Timer() {
 	const state = useSelector((state) => state);
 	const dispatch = useDispatch();
 	const [intervalID, setIntervalID] = useState(null);
@@ -22,7 +26,7 @@ function Timer(props) {
 
 	const minutesLeft = String(Math.floor(state.secondsLeft / 60)).padStart(2, '0');
 	const secondsLeft = String(state.secondsLeft % 60).padStart(2, '0');
-	const playPauseImg = intervalID ? 'pause.png' : 'play.png';
+	const playPauseBtn = intervalID ? pauseBtn : playBtn;
 
 	return (
 		<div id='timer'>
@@ -31,7 +35,7 @@ function Timer(props) {
 				{minutesLeft}:{secondsLeft}
 			</p>
 			<button id='start_stop' onClick={startStopTimer}>
-				<img src={process.env.PUBLIC_URL + '/images/' + playPauseImg} alt='play' />
+				<img src={playPauseBtn} alt='play' />
 			</button>
 			<button
 				id='reset'
@@ -42,10 +46,10 @@ function Timer(props) {
 					}
 					dispatch({ type: RESET });
 				}}>
-				<img src={process.env.PUBLIC_URL + '/images/reset.png'} alt='reset' />
+				<img src={resetBtn} alt='reset' />
 			</button>
 
-			<audio id='beep' src={process.env.PUBLIC_URL + '/sounds/timer_done.wav'} />
+			<audio id='beep' src={timerSound} />
 		</div>
 	);
 }
