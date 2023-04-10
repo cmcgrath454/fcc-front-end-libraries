@@ -7,6 +7,7 @@ import MarkdownApp from './markdown-app/MarkdownApp';
 import CalculatorApp from './calculator-app/CalculatorApp';
 import DrumApp from './drum-app/DrumApp';
 import TimerApp from './timer-app/TimerApp';
+import Reflection from './Reflection';
 
 export const colors = [
 	'rgb(226, 109, 80)',
@@ -38,6 +39,7 @@ function App() {
 					<Route path='/calculator' element={<CalculatorApp setBgColor={setBgColor} getNextColor={getNextColor} />} />
 					<Route path='/drum-pad' element={<DrumApp setBgColor={setBgColor} getNextColor={getNextColor} />} />
 					<Route path='/focus-timer' element={<TimerApp setBgColor={setBgColor} />} />
+					<Route path='/reflection' element={<Reflection setBgColor={setBgColor} />} />
 				</Routes>
 			</HashRouter>
 		</div>

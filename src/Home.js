@@ -24,8 +24,8 @@ function Home() {
 				<a href={process.env.PUBLIC_URL + '/#/focus-timer'} id='timer-link'>
 					<span>Focus Timer</span>
 				</a>
-				<a href={process.env.PUBLIC_URL + '/#/'} id='learned-link'>
-					<span>Learned</span>
+				<a href={process.env.PUBLIC_URL + '/#/reflection'} id='reflection-link'>
+					<span>Reflection</span>
 				</a>
 			</nav>
 		</div>

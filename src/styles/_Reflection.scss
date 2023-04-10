@@ -1,0 +1,17 @@
+#reflection {
+	width: 95%;
+	margin-inline: auto;
+
+	h2 {
+		margin-block: 1rem 0.5rem;
+		@include ff-accent(700);
+	}
+
+	h3 {
+		@include ff-accent();
+	}
+
+	@include media-breakpoint-up(md) {
+		width: 70%;
+	}
+}
