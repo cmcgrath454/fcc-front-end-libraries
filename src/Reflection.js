@@ -21,10 +21,14 @@ function Reflection() {
 					modularizing styles to keep projects organized and maintainable.
 				</p>
 				<p>
-					I styled my <a href='https://colinmcgrath.tech'>personal portfolio</a> almost exclusively with Bootstrap, because it
-					provides a simple and intuitive style. Initially in this project, I used Bootstrap classes to style elements quickly
-					while focusing on functional requirements. After completing the projects, I created a design concept and went back and
-					fully restyled each app SASS with some Bootstrap SASS modules to help with mobile responsiveness.
+					I styled my{' '}
+					<a href='https://colinmcgrath.tech' target='_blank' rel='noreferrer'>
+						personal portfolio
+					</a>{' '}
+					almost exclusively with Bootstrap, because it provides a simple and intuitive style. Initially in this project, I used
+					Bootstrap classes to style elements quickly while focusing on functional requirements. After completing the projects, I
+					created a design concept and went back and fully restyled each app SASS with some Bootstrap SASS modules to help with
+					mobile responsiveness.
 				</p>
 			</section>
 			<section>
@@ -52,17 +56,26 @@ function Reflection() {
 					links to the articles I read below.
 					<ul>
 						<li>
-							<a href='https://forum.freecodecamp.org/t/when-should-i-use-jquery-vs-react/191356/2'>
+							<a
+								href='https://forum.freecodecamp.org/t/when-should-i-use-jquery-vs-react/191356/2'
+								target='_blank'
+								rel='noreferrer'>
 								When should I use Jquery vs React? (FreeCodeCamp Forum)
 							</a>
 						</li>
 						<li>
-							<a href='https://www.upgrad.com/blog/jquery-vs-react/#:~:text=jQuery%20directly%20interacts%20with%20the,suitable%20for%20large%20size%20applications.'>
+							<a
+								href='https://www.upgrad.com/blog/jquery-vs-react/#:~:text=jQuery%20directly%20interacts%20with%20the,suitable%20for%20large%20size%20applications.'
+								target='_blank'
+								rel='noreferrer'>
 								Jquery vs React: Difference between jQuery and React
 							</a>
 						</li>
 						<li>
-							<a href='https://bretcameron.medium.com/react-intro-for-developers-who-know-jquery-1e9dd65863a8' target='_'>
+							<a
+								href='https://bretcameron.medium.com/react-intro-for-developers-who-know-jquery-1e9dd65863a8'
+								target='_blank'
+								rel='noreferrer'>
 								A React.js Introduction for Developers who know JQuery
 							</a>
 						</li>
